@@ -1,0 +1,30 @@
+.toolbar {
+  border-radius: 10px 10px 0 0;
+  background: #ffffff;
+  box-shadow: -8px 0 13px #ededed;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 15px 10px;
+  row-gap: 15px;
+
+  top: 0;
+  z-index: 2;
+}
+.toolbar-grp > * {
+  margin-right: 10px;
+  cursor: pointer;
+}
+.toolbar-grp {
+  margin: 0 10px;
+}
+.toolbar-grp select {
+  height: 30px;
+  border: none;
+  padding-right: 5px;
+}
+@media only screen and (max-width: 650px) {
+  .toolbar {
+    justify-content: center;
+  }
+}
