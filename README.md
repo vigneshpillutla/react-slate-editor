@@ -2,8 +2,6 @@
 
 ## Overview
 
----
-
 This is a full-featured Javascript WYSIWYG editor.
 
 _Draft.js_ and _Quill_ have great out-of-the-box features but are not that extensible and complex features are difficult to implement or impossible.
@@ -11,8 +9,6 @@ _Draft.js_ and _Quill_ have great out-of-the-box features but are not that exten
 That's why this project was created using [Slate.js](https://github.com/ianstormtaylor/slate) which is highly customizable.
 
 ## Key Features
-
----
 
 - [Table Insertion](#table)
 - [HTML Embed](#html-embed)
@@ -22,8 +18,6 @@ That's why this project was created using [Slate.js](https://github.com/ianstorm
 - [Drag & Drop Image Upload](#drag-&-drop) (_backend to be configured_)
 
 ## Working
-
----
 
 ### Table
 
