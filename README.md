@@ -45,3 +45,42 @@ HTML sanitization is done by [_interweave_](https://www.npmjs.com/package/interw
 If you wish to write in html and have the option to edit it later using the rich text features of the editor then this will be useful.
 
 When saving in this format, only the features supported by the editor are kept and the rest is stripped off.
+
+### Internal Blog Linking
+
+<img src="https://i.imgur.com/bv3ycLI.png">
+
+Use this to add a unique ID to whatever you want to create an internal link to.
+
+<img src="https://i.imgur.com/h8F9Uhg.png">
+
+When creating a link add the uniqueID created in the link field (#\<uniqueID>)
+
+### Katex
+
+<img src="https://i.imgur.com/6Ns7CP5.png">
+
+It uses react-katex to display math formulas.
+
+### Drag & Drop
+
+<img src="https://i.imgur.com/73SDe76.png">
+
+Drag and Drop the images or browse to upload the images.  
+You can also add an image via the URL .
+
+## Installing Dependencies
+
+To install all the required dependencies run this command
+
+```
+npm install
+```
+
+## Getting Started
+
+To run the application run this command.
+
+```
+npm start
+```
