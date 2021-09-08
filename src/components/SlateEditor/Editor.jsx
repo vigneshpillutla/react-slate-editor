@@ -55,34 +55,13 @@ const SlateEditor = (props) => {
   valueRef.current = defaultValue;
   const [height, setHeight] = useState('400px');
   useEffect(() => {
-    // if (type === 'question') {
-    //   console.log(initialValue, value);
-    // }
     if (initialValue !== value) {
       setLoading(true);
     }
-    // This introduced some bugs during language changes
-    // if (!initialValue || initialValue === value || !loading) return;
     if (!initialValue || !loading) return;
     let jsonInitialValue = defaultValue;
     try {
       jsonInitialValue = JSON.parse(initialValue).children;
-
-      //THIS CONVERSION AND RE-CONVERSION IS DONE TO RESOLVE SOME PREVIOUS BUGS IN THE SLATE JSON.
-      //ONLY A FEW BLOGS/QUESTIONS HAVE BEEN AFFECTED ..... THIS CAN BE REMOVED IN THE FUTURE.
-      let convertedHtml = getSerialized(
-        JSON.stringify({
-          children: jsonInitialValue,
-        })
-      );
-      convertedHtml = convertedHtml.replaceAll('<br/>', '\n');
-      const slateHtml = new DOMParser().parseFromString(
-        convertedHtml,
-        'text/html'
-      );
-      jsonInitialValue = deserialize(slateHtml.body).filter(
-        (item) => item.type
-      );
     } catch (e) {
       const draftHtml = new DOMParser().parseFromString(
         initialValue,
