@@ -18,6 +18,7 @@ import './Editor.css';
 import CodeToText from './Elements/CodeToText/CodeToText';
 import { deserialize, getSerialized } from './utils/serializer';
 import { handleHotKey } from './utils/keyboardShortcuts';
+import 'katex/dist/katex.min.css';
 
 const Element = (props) => {
   return getBlock(props);

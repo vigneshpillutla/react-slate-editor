@@ -9,11 +9,11 @@
 body {
   /* background: #f9f8f8; */
   background: #f3f3f3;
+  min-height: 100vh;
 }
-body,
-.root,
+#root,
 .App {
-  height: 100vh;
+  min-height: 100vh;
 }
 .App {
   width: 60%;
