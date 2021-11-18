@@ -1,6 +1,7 @@
 import './App.css';
 import { useState } from 'react';
 import Editor from './components/SlateEditor/Editor';
+import axios from 'axios';
 function App() {
   const [slateHtml, setSlateHtml] = useState();
   const shtml =
@@ -8,9 +9,25 @@ function App() {
   const onEditorChange = (value) => {
     setSlateHtml(value);
   };
+
+  const uploadImage = async (file) => {
+    const formData = new FormData();
+    formData.append('file', file);
+    formData.append('upload_preset', 'nopna6e5');
+    const res = await axios.post(
+      'https://api.cloudinary.com/v1_1/dpdrqvomq/image/upload',
+      formData
+    );
+
+    return res;
+  };
   return (
     <div className="App">
-      <Editor onData={onEditorChange} initialValue={shtml} />
+      <Editor
+        onData={onEditorChange}
+        initialValue={shtml}
+        uploadImage={uploadImage}
+      />
     </div>
   );
 }

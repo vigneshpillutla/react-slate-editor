@@ -12,7 +12,7 @@ import './ImageInput.css';
 const ImageInput = ({ editor, uploadImage }) => {
   const text = {
     default: 'Drag & Drop to Upload File',
-    dragOver: 'Release to Upload File',
+    dragOver: 'Release to Upload File'
   };
 
   const urlInputRef = useRef();
@@ -22,11 +22,11 @@ const ImageInput = ({ editor, uploadImage }) => {
   const [isUpload, setIsUpload] = useState(true);
   const [formData, setFormData] = useState({
     url: '',
-    alt: '',
+    alt: ''
   });
   const [uploadData, setUploadData] = useState({
     url: '',
-    alt: '',
+    alt: ''
   });
   const [selection, setSelection] = useState();
   const [dragText, setDragText] = useState(text.default);
@@ -42,11 +42,11 @@ const ImageInput = ({ editor, uploadImage }) => {
     setIsUpload(true);
     setFormData({
       url: '',
-      alt: '',
+      alt: ''
     });
     setUploadData({
       url: '',
-      alt: '',
+      alt: ''
     });
     setDragText(text.default);
     _setFile(null);
@@ -76,7 +76,7 @@ const ImageInput = ({ editor, uploadImage }) => {
     if (isUpload) {
       setUploadData((prev) => ({
         ...prev,
-        alt: value,
+        alt: value
       }));
       return;
     }
@@ -84,12 +84,12 @@ const ImageInput = ({ editor, uploadImage }) => {
       if (name === 'url') {
         return {
           ...prev,
-          url: value,
+          url: value
         };
       }
       return {
         ...prev,
-        alt: value,
+        alt: value
       };
     });
   };
@@ -127,11 +127,11 @@ const ImageInput = ({ editor, uploadImage }) => {
     // }
     try {
       const {
-        data: { link },
+        data: { url }
       } = await uploadImage(fileRef.current);
       setUploadData((prev) => ({
         ...prev,
-        url: link,
+        url
       }));
     } catch (err) {
       setDragText(text.default);
@@ -144,10 +144,11 @@ const ImageInput = ({ editor, uploadImage }) => {
         active={isBlockActive(editor, 'image')}
         style={{
           border: showInput ? '1px solid lightgray' : '',
-          borderBottom: 'none',
+          borderBottom: 'none'
         }}
         format="image"
-        onClick={handleButtonClick}>
+        onClick={handleButtonClick}
+      >
         <Icon icon="image" />
       </Button>
       {showInput && (
@@ -156,12 +157,14 @@ const ImageInput = ({ editor, uploadImage }) => {
             <ul onClick={handleInputToggle}>
               <li
                 name="file"
-                style={{ borderBottomColor: isUpload && '#3F7BD6' }}>
+                style={{ borderBottomColor: isUpload && '#3F7BD6' }}
+              >
                 File Upload
               </li>
               <li
                 name="url"
-                style={{ borderBottomColor: !isUpload && '#3F7BD6' }}>
+                style={{ borderBottomColor: !isUpload && '#3F7BD6' }}
+              >
                 URL
               </li>
             </ul>
@@ -172,9 +175,14 @@ const ImageInput = ({ editor, uploadImage }) => {
                   onDragLeave={handleDragLeave}
                   onDrop={handleDrop}
                   className="dragArea"
-                  ref={dragAreaRef}>
+                  ref={dragAreaRef}
+                >
                   {uploadData.url ? (
-                    <img src={uploadData.url} alt={uploadData.alt} />
+                    <img
+                      src={uploadData.url}
+                      alt={uploadData.alt}
+                      style={{ width: '100%' }}
+                    />
                   ) : (
                     <>
                       <h4>{dragText}</h4>
