@@ -3,7 +3,7 @@ import React, {
   useEffect,
   useMemo,
   useRef,
-  useState,
+  useState
 } from 'react';
 import { createEditor, Transforms } from 'slate';
 import { withHistory } from 'slate-history';
@@ -41,8 +41,8 @@ const SlateEditor = (props) => {
   const defaultValue = [
     {
       type: 'paragaph',
-      children: [{ text: '' }],
-    },
+      children: [{ text: '' }]
+    }
   ];
 
   const [value, setValue] = useState(defaultValue);
@@ -114,7 +114,7 @@ const SlateEditor = (props) => {
     setLoading(false);
     let convertedHtml = getSerialized(
       JSON.stringify({
-        children: newValue,
+        children: newValue
       })
     );
     convertedHtml = convertedHtml.replaceAll('\n', '<br/>');
@@ -129,7 +129,7 @@ const SlateEditor = (props) => {
       Transforms.collapse(editor, { edge: 'end' });
     }
     setShowToolbar(true);
-    editorWrapperRef.current.scrollIntoView();
+    // editorWrapperRef.current.scrollIntoView();
   };
   const renderElement = useCallback((props) => <Element {...props} />, []);
 
@@ -141,12 +141,12 @@ const SlateEditor = (props) => {
     showInput: false,
     html: '',
     action: '',
-    location: '',
+    location: ''
   });
   const handleCodeToText = (partialState) => {
     setHtmlAction((prev) => ({
       ...prev,
-      ...partialState,
+      ...partialState
     }));
   };
 
@@ -155,7 +155,8 @@ const SlateEditor = (props) => {
       <div
         ref={editorWrapperRef}
         onFocus={handleFocus}
-        style={{ marginTop: '10px' }}>
+        style={{ marginTop: '10px' }}
+      >
         {showToolbar && (
           <Toolbar
             handleCodeToText={handleCodeToText}
@@ -169,8 +170,9 @@ const SlateEditor = (props) => {
             border: '1px solid #f3f3f3',
             padding: '0 10px',
             minHeight: height,
-            marginBottom: type === 'solution' ? '100px' : '0',
-          }}>
+            marginBottom: type === 'solution' ? '100px' : '0'
+          }}
+        >
           <Editable
             renderElement={renderElement}
             renderLeaf={renderLeaf}
